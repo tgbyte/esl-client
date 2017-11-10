@@ -1,5 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
 
 group = 'org.freeswitch.esl.client'
 version = '0.10.0-SNAPSHOT'
@@ -17,4 +19,12 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.25'
     runtime 'ch.qos.logback:logback-classic:1.2.3'
     testCompile 'junit:junit:4.8.1'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
 }
